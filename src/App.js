@@ -13,7 +13,7 @@ function App() {
         setLat(position.coords.latitude);
         setLon(position.coords.longitude);
       });
-      await fetch(`${process.env.REACT_APP_API_URL}lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`)
+      await fetch(`${process.env.REACT_APP_API_URL}lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(result => {
           setData(result);

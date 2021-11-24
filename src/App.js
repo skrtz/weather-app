@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Weather from './components/weather';
-import { Dimmer, Loader } from 'semantic-ui-react';
+import { Dimmer, Loader, Input } from 'semantic-ui-react';
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -18,7 +18,6 @@ function App() {
         .then(res => res.json())
         .then(result => {
           setData(result);
-          // console.log(result)
         })
     }
     fetchData();
@@ -27,7 +26,13 @@ function App() {
   return (
     <div className="App">
       {(typeof data.main != 'undefined') ? (
-        <Weather weatherData={data} />
+        <div>
+          <Input
+            icon={{ name: 'search', circular: true, link: true }}
+            placeholder='Search...'
+          />
+          <Weather weatherData={data} />
+        </div>
       ) : (
         <div>
           <Dimmer active>

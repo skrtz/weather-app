@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Weather from './components/weather';
-import { Dimmer, Loader, Input } from 'semantic-ui-react';
+import Search from './components/searchBar'
+import { Dimmer, Loader, Input, Form } from 'semantic-ui-react';
 
 function App() {
   const [lat, setLat] = useState([]);
   const [lon, setLon] = useState([]);
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,10 +30,7 @@ function App() {
     <div className="App">
       {(typeof data.main != 'undefined') ? (
         <div>
-          <Input
-            icon={{ name: 'search', circular: true, link: true }}
-            placeholder='Search...'
-          />
+          <Search/>
           <Weather weatherData={data} />
         </div>
       ) : (

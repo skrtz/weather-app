@@ -1,19 +1,25 @@
 
 
-const Search = () => {
-    return(
+const Search = ({ value, handleInputChange, handleFormSubmit }) => {
+    return (
         <form action="/" method="get">
-        <label htmlFor="header-search">
-            <span className="visually-hidden">Search Weather</span>
-        </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search by city"
-            name="s" 
-        />
-        <button type="submit">Search</button>
-    </form>
+            <label htmlFor="header-search">
+                <span className="visually-hidden">Search Weather</span>
+            </label>
+            <input
+                type="text"
+                id="header-search"
+                value={value}
+                placeholder="Search by city"
+                onChange={handleInputChange}
+            />
+            <button 
+                type="submit"
+                onClick={handleFormSubmit}
+            >
+                    Search
+            </button>
+        </form>
     )
 }
 

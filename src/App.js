@@ -28,9 +28,10 @@ function App() {
 
   const searchWeather = async (search) =>{
     await fetch(`${process.env.REACT_APP_API_URL}id=${search}&appid=${process.env.REACT_APP_API_KEY}`)
+      .then(res => res.json())
       .then(res => {
         setResult(res);
-        console.log(result);
+        console.log(result.name)
       })
   }
 
@@ -42,7 +43,6 @@ function App() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(search);
     searchWeather(search);
     setSearch('');
   };

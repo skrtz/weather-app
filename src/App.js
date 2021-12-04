@@ -27,12 +27,11 @@ function App() {
     fetchData();
   }, [lat, lon]);
 
-  const searchWeather = async (search) =>{
-    await fetch(`${process.env.REACT_APP_API_URL}id=${search}&appid=${process.env.REACT_APP_API_KEY}`)
+  const searchWeather = async (search) => {
+    await fetch(`${process.env.REACT_APP_API_URL}q=${search}&appid=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(res => {
         setResult(res);
-        console.log(result.name)
       })
   }
 
@@ -58,7 +57,7 @@ function App() {
             handleFormSubmit={handleFormSubmit}
           />
           <Weather weatherData={data} />
-          <WeatherSearch results={result}/>
+          <WeatherSearch results={result} />
         </div>
       ) : (
         <div>

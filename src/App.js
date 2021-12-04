@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Weather from './components/weather';
-import Search from './components/searchBar'
-import { Dimmer, Loader } from 'semantic-ui-react';
+import SearchBar from './components/searchBar';
+import WeatherSearch from './components/searchResults';
+import { Dimmer, Loader, SearchResult } from 'semantic-ui-react';
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -51,12 +52,13 @@ function App() {
     <div className="App">
       {(typeof data.main != 'undefined') ? (
         <div>
-          <Search
+          <SearchBar
             value={search}
             handleInputChange={handleInputChange}
             handleFormSubmit={handleFormSubmit}
           />
           <Weather weatherData={data} />
+          <WeatherSearch results={result}/>
         </div>
       ) : (
         <div>

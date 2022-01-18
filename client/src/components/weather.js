@@ -3,6 +3,7 @@ import './styles.css';
 import { Button } from 'semantic-ui-react';
 import moment from 'moment';
 
+
 const refresh = () => {
     window.location.reload();
 }
@@ -18,7 +19,7 @@ const CardExampleCard = ({ weatherData }) => (
             <p className="description">{weatherData.weather[0].description}</p>
         </div>
         <div className="flex">
-            <p className="temp">Temprature: {weatherData.main.temp} &deg;F</p>
+            <p className="temp">Temprature: {(weatherData.main.temp).toFixed(0)} &deg;F</p>
             <p className="temp">Humidity: {weatherData.main.humidity} %</p>
         </div>
         <div className="flex">

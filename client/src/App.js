@@ -31,6 +31,7 @@ function App() {
     await fetch(`${process.env.REACT_APP_API_URL}q=${search}&appid=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         setResult(res);
       })
   }

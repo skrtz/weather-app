@@ -1,6 +1,7 @@
 import moment from "moment";
 
 const SearchResults = ({ results }) => {
+    
     return (
         <div className="main">
             {(typeof results.weather != 'undefined') ? (
